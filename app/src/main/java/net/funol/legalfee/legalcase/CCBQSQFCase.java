@@ -1,4 +1,7 @@
-package net.funol.legalfee.calculater;
+package net.funol.legalfee.legalcase;
+
+import net.funol.legalfee.calculator.CCBQSQFCalculator;
+import net.funol.legalfee.calculator.Calculator;
 
 /**
  * 财产保全申请费

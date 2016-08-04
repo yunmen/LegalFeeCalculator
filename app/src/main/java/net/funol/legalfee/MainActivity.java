@@ -4,10 +4,23 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import net.funol.legalfee.legalcase.CCAJSLFCase;
+import net.funol.legalfee.legalcase.CCBQSQFCase;
+import net.funol.legalfee.legalcase.LHAJSLFCase;
+import net.funol.legalfee.legalcase.LegalCase;
+import net.funol.legalfee.legalcase.PCAJSLFCase;
+import net.funol.legalfee.legalcase.QZZXSQFCase;
+import net.funol.legalfee.legalcase.RGQAJSLFCase;
+import net.funol.legalfee.legalcase.SSFJBSECase;
+import net.funol.legalfee.legalcase.ZFLSQFCase;
+import net.funol.legalfee.legalcase.ZSCQAJSLFCase;
+
 import java.math.BigDecimal;
-import java.text.Format;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
     TextView mResult;
     @BindView(R.id.cal_input)
     TextView mInput;
+    @BindView(R.id.main_spinner)
+    Spinner mSpinner;
+
+    private LegalCaseSpinnerAdapter mAdapter;
 
     private String input = "0";
     private String result = "0";
@@ -38,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
         mInput.setText(input);
         mResult.setText(result);
 
-        setTitle("财产案件" + getTitle());
+        mAdapter = new LegalCaseSpinnerAdapter(this, getSupportLegalCases());
+        mSpinner.setAdapter(mAdapter);
     }
 
     protected void addNumber(String num) {
@@ -145,6 +163,25 @@ public class MainActivity extends AppCompatActivity {
         BigDecimal b = new BigDecimal(result + "");
         result = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         return result;
+    }
+
+    /**
+     * 获取支持计算的案件类型
+     *
+     * @return List<LegalCase>
+     */
+    private List<LegalCase> getSupportLegalCases() {
+        List<LegalCase> legalCases = new ArrayList<>();
+        legalCases.add(new CCAJSLFCase());
+        legalCases.add(new CCBQSQFCase());
+        legalCases.add(new QZZXSQFCase());
+        legalCases.add(new LHAJSLFCase());
+        legalCases.add(new ZFLSQFCase());
+        legalCases.add(new RGQAJSLFCase());
+        legalCases.add(new PCAJSLFCase());
+        legalCases.add(new ZSCQAJSLFCase());
+        legalCases.add(new SSFJBSECase());
+        return legalCases;
     }
 
     @OnClick({R.id.cal_number_7,

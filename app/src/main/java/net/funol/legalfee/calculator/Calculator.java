@@ -1,4 +1,4 @@
-package net.funol.legalfee.calculater;
+package net.funol.legalfee.calculator;
 
 /**
  * Created by ZHAOWEIWEI on 2016/8/4.

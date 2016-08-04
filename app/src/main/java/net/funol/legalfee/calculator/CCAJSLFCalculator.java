@@ -1,4 +1,4 @@
-package net.funol.legalfee.calculater;
+package net.funol.legalfee.calculator;
 
 /**
  * 财产案件受理费计算器

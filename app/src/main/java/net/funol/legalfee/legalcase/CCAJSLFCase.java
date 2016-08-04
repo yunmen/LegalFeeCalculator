@@ -1,4 +1,7 @@
-package net.funol.legalfee.calculater;
+package net.funol.legalfee.legalcase;
+
+import net.funol.legalfee.calculator.CCAJSLFCalculator;
+import net.funol.legalfee.calculator.Calculator;
 
 /**
  * 财产案件受理费
