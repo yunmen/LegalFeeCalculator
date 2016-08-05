@@ -53,6 +53,10 @@ public abstract class LegalCase {
         this.targetAmount = targetAmount;
     }
 
-    public abstract Calculator createCalculator();
+    public Calculator getCalculator() {
+        return calculator;
+    }
+
+    protected abstract Calculator createCalculator();
 
 }

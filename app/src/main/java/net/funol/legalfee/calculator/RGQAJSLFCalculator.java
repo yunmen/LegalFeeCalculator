@@ -3,9 +3,18 @@ package net.funol.legalfee.calculator;
 /**
  * 人格权案件受理费计算器
  */
-public class RGQAJSLFCalculator implements Calculator {
+public class RGQAJSLFCalculator extends CaseCalculator {
     @Override
-    public double getResult(double input) {
-        return 0;
+    public String getResult() {
+        double result;
+        double input = getCurrentInputValue();
+        if ((input > 50000) && (input <= 100000)) {
+            result = (input - 50000) * 0.01;
+            return formatNumber(result) + " + (100~500)";
+        } else if (input > 100000) {
+            result = (input - 100000) * 0.005 + 500;
+            return formatNumber(result) + " + (100~500)";
+        }
+        return "100~500";
     }
 }

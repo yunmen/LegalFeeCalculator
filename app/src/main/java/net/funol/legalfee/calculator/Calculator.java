@@ -5,6 +5,14 @@ package net.funol.legalfee.calculator;
  */
 public interface Calculator {
 
-    double getResult(double input);
+    String input(char input);
+
+    String backspace();
+
+    String clear();
+
+    String getDisplay();
+
+    String getResult();
 
 }

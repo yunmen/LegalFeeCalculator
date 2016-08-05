@@ -13,7 +13,7 @@ public class SSFJBSECase extends LegalCase {
     }
 
     @Override
-    public Calculator createCalculator() {
+    protected Calculator createCalculator() {
         return new SSFJBSECalculator();
     }
 }
