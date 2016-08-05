@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f3f3"
+    android:orientation="vertical"
+    android:weightSum="17"
+    tools:context="net.funol.legalfee.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/main_spinner"
+                style="@style/Widget.Spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+
+            </Spinner>
+
+            <ImageView
+                android:id="@+id/help"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:minWidth="48dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_help_white" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <net.funol.legalfee.widget.AutoResizeTextView
+            android:id="@+id/cal_result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="right|bottom"
+            android:textColor="@color/colorAccent"
+            android:textSize="60sp" />
+
+        <net.funol.legalfee.widget.AutoResizeTextView
+            android:id="@+id/cal_input"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="right|bottom"
+            android:textColor="#303131"
+            android:textSize="60sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:background="#c3c6c7"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@android:color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/cal_number_7"
+                style="@style/CalItemStyle"
+                android:text="7" />
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/cal_number_8"
+                style="@style/CalItemStyle"
+                android:text="8" />
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/cal_number_9"
+                style="@style/CalItemStyle"
+                android:text="9" />
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/cal_op_backspace"
+                style="@style/CalItemStyle"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_del" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@android:color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/cal_number_4"
+                style="@style/CalItemStyle"
+                android:text="4" />
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/cal_number_5"
+                style="@style/CalItemStyle"
+                android:text="5" />
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/cal_number_6"
+                style="@style/CalItemStyle"
+                android:text="6" />
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/cal_op_clear"
+                style="@style/CalItemStyle"
+                android:text="C"
+                android:textColor="#ff5d00" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@android:color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:id="@+id/cal_number_1"
+                        style="@style/CalItemStyle"
+                        android:text="1" />
+
+                    <View
+                        android:layout_width="2px"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                    <TextView
+                        android:id="@+id/cal_number_2"
+                        style="@style/CalItemStyle"
+                        android:text="2" />
+
+                    <View
+                        android:layout_width="2px"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                    <TextView
+                        android:id="@+id/cal_number_3"
+                        style="@style/CalItemStyle"
+                        android:text="3" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@android:color/transparent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="3">
+
+                    <TextView
+                        style="@style/CalItemStyle"
+                        android:enabled="false"
+                        android:text=" " />
+
+                    <View
+                        android:layout_width="2px"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                    <TextView
+                        android:id="@+id/cal_number_0"
+                        style="@style/CalItemStyle"
+                        android:text="0" />
+
+                    <View
+                        android:layout_width="2px"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                    <TextView
+                        android:id="@+id/cal_number_dot"
+                        style="@style/CalItemStyle"
+                        android:text="." />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/cal_op_result"
+                style="@style/CalItemStyle"
+                android:background="@drawable/bg_cal_item_orange_selector"
+                android:text="="
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
