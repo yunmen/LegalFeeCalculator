@@ -14,7 +14,7 @@
         android:layout_height="48dp"
         android:background="@color/colorPrimary"
         app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp" >
+        app:contentInsetStart="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,10 +30,13 @@
             </Spinner>
 
             <ImageView
+                android:id="@+id/help"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:src="@android:drawable/ic_menu_help" />
+                android:minWidth="48dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_help_white" />
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
@@ -45,21 +48,21 @@
         android:orientation="vertical"
         android:weightSum="2">
 
-        <TextView
+        <net.funol.legalfee.widget.AutoResizeTextView
             android:id="@+id/cal_result"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="right"
-            android:textColor="#303131"
+            android:gravity="right|bottom"
+            android:textColor="@color/colorAccent"
             android:textSize="60sp" />
 
-        <TextView
+        <net.funol.legalfee.widget.AutoResizeTextView
             android:id="@+id/cal_input"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="right"
+            android:gravity="right|bottom"
             android:textColor="#303131"
             android:textSize="60sp" />
 

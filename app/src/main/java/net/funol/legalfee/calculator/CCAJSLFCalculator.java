@@ -30,7 +30,7 @@ public class CCAJSLFCalculator extends CaseCalculator {
         } else if (input > 20000000) {
             result = input * 0.005 + 41800;
         }
-        return formatNumber(result) + "";
+        return formatNumber(result);
     }
 
 }

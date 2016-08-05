@@ -1,7 +1,11 @@
 package net.funol.legalfee;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.DimenRes;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -18,7 +22,10 @@ import net.funol.legalfee.legalcase.RGQAJSLFCase;
 import net.funol.legalfee.legalcase.SSFJBSECase;
 import net.funol.legalfee.legalcase.ZFLSQFCase;
 import net.funol.legalfee.legalcase.ZSCQAJSLFCase;
+import net.funol.legalfee.utils.Dimension;
+import net.funol.legalfee.widget.AutoResizeTextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @BindView(R.id.cal_result)
     TextView mResult;
     @BindView(R.id.cal_input)
-    TextView mInput;
+    AutoResizeTextView mInput;
     @BindView(R.id.main_spinner)
     Spinner mSpinner;
 
@@ -55,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mSpinner.setOnItemSelectedListener(this);
         mSpinner.setAdapter(mAdapter);
         mSpinner.setSelection(0);
+
+        mInput.setMaxLines(3);
+        mResult.setMaxLines(3);
     }
 
     protected void input(char num) {
@@ -67,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     protected void clear() {
         mInput.setText(mCurrentLegalCase.getCalculator().clear());
+        result();
     }
 
     public void result() {
@@ -79,17 +90,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
      * @return List<LegalCase>
      */
     private List<LegalCase> getSupportLegalCases() {
-        List<LegalCase> legalCases = new ArrayList<>();
-        legalCases.add(new CCAJSLFCase());
-        legalCases.add(new CCBQSQFCase());
-        legalCases.add(new QZZXSQFCase());
-        legalCases.add(new LHAJSLFCase());
-        legalCases.add(new ZFLSQFCase());
-        legalCases.add(new RGQAJSLFCase());
-        legalCases.add(new PCAJSLFCase());
-        legalCases.add(new ZSCQAJSLFCase());
-        legalCases.add(new SSFJBSECase());
-        return legalCases;
+        List<LegalCase> cases = new ArrayList<>();
+        cases.add(new CCAJSLFCase());
+        cases.add(new CCBQSQFCase());
+        cases.add(new QZZXSQFCase());
+        cases.add(new LHAJSLFCase());
+        cases.add(new ZFLSQFCase());
+        cases.add(new RGQAJSLFCase());
+        cases.add(new PCAJSLFCase());
+        cases.add(new ZSCQAJSLFCase());
+        //cases.add(new SSFJBSECase());
+        return cases;
     }
 
     @OnClick({R.id.cal_number_7,
@@ -105,7 +116,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             R.id.cal_number_dot,
             R.id.cal_op_backspace,
             R.id.cal_op_clear,
-            R.id.cal_op_result})
+            R.id.cal_op_result,
+            R.id.help})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.cal_number_0:
@@ -130,12 +142,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case R.id.cal_op_result:
                 result();
                 break;
+            case R.id.help:
+                Intent intent = new Intent(this, HelpActivity.class);
+                intent.putExtra("title", mCurrentLegalCase.getName());
+                intent.putExtra("content", mCurrentLegalCase.getDescribe());
+                startActivity(intent);
+                break;
         }
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         mCurrentLegalCase = mAdapter.getItem(position);
+        clear();
     }
 
     @Override

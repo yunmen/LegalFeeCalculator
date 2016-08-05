@@ -32,6 +32,6 @@ public class PCAJSLFCalculator extends CaseCalculator {
         if ((result >= 300000)) {
             result = 300000;
         }
-        return formatNumber(result) + "";
+        return formatNumber(result);
     }
 }

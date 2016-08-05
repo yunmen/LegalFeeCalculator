@@ -29,6 +29,6 @@ public class ZFLSQFCalculator extends CaseCalculator {
         } else if (input > 20000000) {
             result = (input * 0.005 + 41800) / 3;
         }
-        return formatNumber(result) + "";
+        return formatNumber(result);
     }
 }

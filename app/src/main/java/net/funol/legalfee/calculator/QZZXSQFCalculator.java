@@ -20,7 +20,7 @@ public class QZZXSQFCalculator extends CaseCalculator {
             result = input * 0.001 + 67400;
         }
         if (result != 0) {
-            return formatNumber(result) + "";
+            return formatNumber(result);
         } else {
             return "50~500";
         }

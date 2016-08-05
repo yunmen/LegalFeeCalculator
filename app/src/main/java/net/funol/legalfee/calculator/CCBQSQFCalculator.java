@@ -19,7 +19,7 @@ public class CCBQSQFCalculator extends CaseCalculator {
         if ((result >= 5000)) {
             result = 5000;
         }
-        return formatNumber(result) + "";
+        return formatNumber(result);
     }
 
 }
