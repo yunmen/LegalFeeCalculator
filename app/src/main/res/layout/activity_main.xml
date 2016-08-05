@@ -171,7 +171,7 @@
                 android:id="@+id/cal_op_clear"
                 style="@style/CalItemStyle"
                 android:text="C"
-                android:textColor="#ff5d00" />
+                android:textColor="@color/colorAccent" />
 
         </LinearLayout>
 
